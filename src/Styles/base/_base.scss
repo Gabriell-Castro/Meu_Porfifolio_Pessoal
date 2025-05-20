@@ -1,0 +1,13 @@
+@use "../../Styles/abstracts/variables" as *;
+
+body {
+  color: $text-color;
+  background: linear-gradient(
+    225deg,
+    rgba(2, 0, 36, 1) 51%,
+    rgba(52, 39, 38, 1) 0%
+  );
+  width: 100vw;
+  font-family: $primary-font;
+  background-repeat: no-repeat;
+}

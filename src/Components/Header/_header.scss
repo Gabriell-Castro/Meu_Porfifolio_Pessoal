@@ -1,0 +1,157 @@
+@use "../../Styles/abstracts/variables" as *;
+@use "../../Styles/breakpoints/breakpoints";
+
+@keyframes float-up {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.5rem;
+  width: 100%;
+  background-color: $secondary-color;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: fixed;
+  z-index: 1000;
+  transition: all 0.7s;
+
+  @media (max-width: #{breakpoints.$md}) {
+    height: 11.5rem;
+  }
+  @media (max-width: #{breakpoints.$sm}) {
+    background-color: transparent;
+    border-bottom: none;
+
+    height: 7rem;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 79%;
+    margin: 0 auto;
+    position: relative;
+    @media (max-width: #{breakpoints.$md}) {
+      flex-direction: column;
+    }
+    @media (max-width: #{breakpoints.$sm}) {
+      flex-direction: row;
+      width: 90%;
+    }
+
+    .logo {
+      display: flex;
+      gap: 10px;
+      font-size: 30px;
+
+      svg {
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+
+        &:first-child,
+        &:last-child {
+          animation-name: float-down;
+        }
+
+        &:nth-child(2) {
+          animation-name: float-up;
+        }
+      }
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      z-index: 1100;
+      position: relative;
+      cursor: pointer;
+
+      @media (max-width: #{breakpoints.$sm}) {
+        display: block;
+      }
+    }
+
+    ul {
+      display: flex;
+      gap: 40px;
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Press Start 2P", cursive;
+        font-size: 10px;
+
+        a {
+          padding: 29px 10px;
+          color: $text-color;
+          border-radius: 15%;
+          text-align: center;
+          transition: background-color 0.6s ease;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.136);
+            cursor: pointer;
+          }
+        }
+      }
+
+      @media (max-width: #{breakpoints.$sm}) {
+        flex-direction: column;
+        background-color: $secondary-color;
+        position: absolute;
+        top: 60px;
+        border-radius: 20px;
+        right: 0;
+        padding: 1rem 0;
+        z-index: 1000;
+        display: none;
+        &.open {
+          display: flex;
+        }
+      }
+    }
+
+    div {
+      display: flex;
+      gap: 30px;
+      font-size: 25px;
+
+      a {
+        padding: 15px 5px;
+        transition: font-size 0.2s ease;
+
+        &:hover {
+          font-size: 30px;
+        }
+      }
+
+      @media (max-width: #{breakpoints.$sm}) {
+        display: none;
+      }
+    }
+  }
+}
