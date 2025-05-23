@@ -22,24 +22,30 @@ export const Header = () => {
           <SiMongodb color="green" />
         </div>
 
-        {/* Botão hambúrguer */}
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-        {/* Menu de navegação */}
         <ul className={menuOpen ? "open" : ""}>
           <li>
-            <a href="#sobre">Sobre Mim</a>
+            <a href="#sobre" onClick={() => setMenuOpen(false)}>
+              Sobre Mim
+            </a>
           </li>
           <li>
-            <a href="#projetos">Projetos</a>
+            <a href="#projetos" onClick={() => setMenuOpen(false)}>
+              Projetos
+            </a>
           </li>
           <li>
-            <a href="#conhecimentos">Conhecimentos</a>
+            <a href="#conhecimentos" onClick={() => setMenuOpen(false)}>
+              Conhecimentos
+            </a>
           </li>
           <li>
-            <a href="#contato">Fale Comigo</a>
+            <a href="#contato" onClick={() => setMenuOpen(false)}>
+              Fale Comigo
+            </a>
           </li>
         </ul>
 
