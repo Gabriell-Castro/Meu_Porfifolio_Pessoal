@@ -1,0 +1,85 @@
+@use "../../Styles/abstracts/variables" as *;
+@use "../../Styles/breakpoints/breakpoints";
+.containerProjects {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: #020024;
+  background: linear-gradient(119deg, #342726 58%, #020024 0%);
+  height: auto;
+  padding: 40px;
+  gap: 40px;
+
+  h1 {
+    text-align: center;
+    @media screen and (max-width: #{breakpoints.$md}) {
+      font-size: 19px;
+      letter-spacing: 2px;
+    }
+  }
+  .listCardsProjects {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 80%;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    gap: 70px 0;
+    @media (max-width: #{breakpoints.$sm}) {
+      justify-content: center;
+    }
+
+    li {
+      flex: 1 1 calc(33.33% - 2rem);
+      max-width: calc(33.33% - 2rem);
+      height: 20vh;
+      background-color: #fff;
+      height: 180px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+
+      @media (max-width: #{breakpoints.$md}) {
+        flex: 1 1 calc(50% - 2rem);
+        max-width: calc(50% - 2rem);
+      }
+      @media (max-width: #{breakpoints.$sm}) {
+        flex: 1 1 calc(100% - 2rem);
+        max-width: calc(100% - 2rem);
+      }
+      p {
+        position: absolute;
+        text-align: center;
+        padding: 5px 20px;
+        width: 180%;
+
+        transform: rotate(45deg);
+        background-color: $secondary-color;
+        margin: 0;
+      }
+    }
+    li:hover {
+      transform: scale(1.1);
+    }
+  }
+  button {
+    margin: 0 auto;
+    border-radius: 3px;
+    padding: 10px;
+    width: 33%;
+    background-color: $secondary-color;
+    color: $text-color;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.083);
+  }
+  button:hover {
+    transform: scale(1.1);
+  }
+}

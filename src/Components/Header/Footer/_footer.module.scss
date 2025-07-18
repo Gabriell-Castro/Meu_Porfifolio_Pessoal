@@ -1,0 +1,32 @@
+@use "../../../Styles/abstracts/variables" as *;
+@use "../../../Styles/breakpoints/breakpoints" as *;
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  background-color: $secondary-color;
+  height: 10vh;
+  @media screen and (max-width: $md) {
+    flex-direction: column;
+    height: 20vh;
+    gap: 30px;
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  a {
+    background-color: $primary-color;
+    padding: 10px 20px;
+    border-radius: 5px;
+    animation: pulse 2s infinite ease-in-out;
+  }
+}

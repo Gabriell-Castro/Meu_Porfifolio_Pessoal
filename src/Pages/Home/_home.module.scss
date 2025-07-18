@@ -20,9 +20,15 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 79%;
   margin: 0 auto;
   height: 100vh;
+  color: $text-color;
+  background: linear-gradient(
+    225deg,
+    rgba(2, 0, 36, 1) 51%,
+    rgba(52, 39, 38, 1) 0%
+  );
+  background-repeat: no-repeat;
   @media (max-width: #{breakpoints.$sm}) {
     height: 80vh;
   }
@@ -54,8 +60,8 @@
         white-space: nowrap;
         overflow: hidden;
         border-right: 2px solid $primary-color;
-        width: 0;
-        animation: typing 3s steps(20) forwards, blink 0.7s step-end infinite;
+        animation: typing 3s steps(14) forwards, blink 0.7s step-end infinite;
+        width: 14ch;
         transition: all 1s;
         @media (max-width: #{breakpoints.$md}) {
           font-size: 70%;
@@ -95,6 +101,7 @@
       height: 300px;
       width: 300px;
       transition: all 1.5s;
+      transition: transform 0.3s ease;
       @media (max-width: #{breakpoints.$md}) {
         height: 200px;
         width: 200px;
@@ -102,6 +109,9 @@
       @media (max-width: #{breakpoints.$sm}) {
         display: none;
       }
+    }
+    img:hover {
+      transform: scale(1.1);
     }
   }
 }

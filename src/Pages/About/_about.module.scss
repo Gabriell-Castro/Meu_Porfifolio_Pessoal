@@ -1,0 +1,59 @@
+@use "../../Styles/abstracts/variables" as *;
+@use "../../Styles/breakpoints/breakpoints";
+
+.aboutContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  margin: 0 auto;
+  width: 100%;
+  height: 75vh;
+  background-color: $primary-color;
+
+  @media (max-width: #{breakpoints.$md}) {
+    height: 65vh;
+  }
+  @media (max-width: #{breakpoints.$sm}) {
+    gap: 0px;
+    height: 100vh;
+    flex-direction: column;
+    img {
+      height: 45vh;
+    }
+  }
+  .avatar {
+    img {
+      transition: transform 0.3s ease;
+      width: 25vw;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+    @media (max-width: #{breakpoints.$sm}) {
+      img {
+        width: 45vw;
+      }
+    }
+  }
+  .textAbout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    letter-spacing: 1px;
+    width: 40%;
+    font-size: 75%;
+    @media (max-width: #{breakpoints.$sm}) {
+      width: 80%;
+    }
+    h1 {
+      font-size: 100%;
+    }
+    p {
+      width: 100%;
+    }
+    @media (max-width: #{breakpoints.$md}) {
+      font-size: 70%;
+    }
+  }
+}
